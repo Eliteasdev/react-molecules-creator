@@ -17,36 +17,35 @@ export default function Molecule () {
     sunlight.position.set(1, 1, 1).normalize()
     scene.add(sunlight)
 
-    const sphereGeometry = new THREE.SphereGeometry(1, 32, 32)
+    const sphereGeometry = new THREE.SphereGeometry(0.5, 32, 32)
     const sphereMaterial = new THREE.MeshPhongMaterial({ color: 0x00ff00 })
     const sphere1 = new THREE.Mesh(sphereGeometry, sphereMaterial)
     const sphere2 = new THREE.Mesh(sphereGeometry, sphereMaterial)
 
-    sphere1.position.set(-1.5, 0, 0)
-    sphere2.position.set(1.5, 0, 0)
+    sphere1.position.set(-0.8, 0, 0)
+    sphere2.position.set(0.8, 0, 0)
 
-    // Creamos un cilindro horizontal que conecta las dos esferas
-    const cylinderGeometry = new THREE.CylinderGeometry(0.1, 0.1, 3, 32)
-    const cylinderMaterial = new THREE.MeshPhongMaterial({ color: 0x0000ff }) // Cambiamos el color a azul
+    const cylinderGeometry = new THREE.CylinderGeometry(0.1, 0.1, 0.8, 32)
+    const cylinderMaterial = new THREE.MeshPhongMaterial({ color: 0x0000ff })
     const cylinder = new THREE.Mesh(cylinderGeometry, cylinderMaterial)
+    cylinder.rotation.z = Math.PI / 2
 
-    // Posicionamos el cilindro entre las dos esferas de forma horizontal
-    cylinder.position.set(0, 0, 0)
-    cylinder.rotation.z = Math.PI / 2 // Rotamos el cilindro 90 grados para que quede horizontal
+    // Agrupamos las esferas y el cilindro en un objeto llamado moleculeGroup
+    const moleculeGroup = new THREE.Group()
+    moleculeGroup.add(sphere1)
+    moleculeGroup.add(sphere2)
+    moleculeGroup.add(cylinder)
 
-    scene.add(sphere1)
-    scene.add(sphere2)
-    scene.add(cylinder)
+    scene.add(moleculeGroup)
 
     camera.position.z = 5
 
     const animate = () => {
       requestAnimationFrame(animate)
 
-      sphere1.rotation.x += 0.01
-      sphere1.rotation.y += 0.01
-      sphere2.rotation.x += 0.01
-      sphere2.rotation.y += 0.01
+      // Rotamos el grupo entero, incluyendo las esferas y el cilindro
+      moleculeGroup.rotation.x += 0.01
+      moleculeGroup.rotation.y += 0.01
 
       renderer.render(scene, camera)
     }
