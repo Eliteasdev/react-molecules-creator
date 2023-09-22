@@ -4,10 +4,10 @@ const ACTIONS_KEYBOARD_MAP = {
   KeyS: 'moveBackward',
   KeyA: 'moveLeft',
   KeyD: 'moveRight',
-  Digit1: 'Cursor',
-  Digit2: 'Sphere',
-  Digit3: 'Connector',
-  Digit4: 'Delete'
+  Digit1: 'connector',
+  Digit2: 'cursor',
+  Digit3: 'del',
+  Digit4: 'sphere'
 }
 
 export const useKeyboard = () => {
@@ -19,7 +19,7 @@ export const useKeyboard = () => {
     cursor: false,
     sphere: false,
     connector: false,
-    delete: false
+    del: false
   })
 
   useEffect(() => {

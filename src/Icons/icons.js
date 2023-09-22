@@ -1,6 +1,6 @@
-import aPointerIcon from './pointer.svg'
-import bAtomIcon from './atom.svg'
-import cConnectorIcon from './line.svg'
-import dTrashIcon from './trash.svg'
+import cursorIcon from './pointer.svg'
+import sphereIcon from './atom.svg'
+import connectorIcon from './line.svg'
+import delIcon from './trash.svg'
 
-export { aPointerIcon, bAtomIcon, cConnectorIcon, dTrashIcon }
+export { cursorIcon, sphereIcon, connectorIcon, delIcon }

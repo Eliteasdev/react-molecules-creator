@@ -51,3 +51,10 @@ body{
 .menu-selector img{
   width: 36px;
 }
+
+.menu-selector img.selected{
+  display: flex;
+  background: #6c93ca;
+  margin: 4px;
+  border-radius: 8px;
+}
