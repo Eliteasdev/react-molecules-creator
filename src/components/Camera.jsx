@@ -11,7 +11,9 @@ export function Camera () {
     moveForward,
     moveBackward,
     moveLeft,
-    moveRight
+    moveRight,
+    moveUp,
+    moveDown
   } = useKeyboard()
 
   const { camera } = useThree()
@@ -54,7 +56,7 @@ export function Camera () {
 
     const sideVector = new Vector3(
       (moveLeft ? 1 : 0) - (moveRight ? 1 : 0),
-      0,
+      (moveDown ? 1 : 0) - (moveUp ? 1 : 0),
       0
     )
 
