@@ -5,6 +5,7 @@ import { Menu } from './components/Menu'
 import { Molecule } from './components/Molecule'
 import { FPV } from './components/FPV'
 import { Camera } from './components/Camera'
+import { DirectionCreation } from './components/DirectionCreation'
 
 function App () {
   return (
@@ -20,6 +21,7 @@ function App () {
       </Physics>
     </Canvas>
     <Menu/>
+    <DirectionCreation/>
     <div className='pointer'>+</div>
     </>
   )

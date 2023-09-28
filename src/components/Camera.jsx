@@ -7,7 +7,7 @@ import { useStore } from '../hooks/useStore'
 
 export function Camera () {
   const [addAtom] = useStore(state => [state.addAtom])
-  const CAMERA_SPEED = 6
+  const CAMERA_SPEED = 3
 
   const {
     moveForward,
@@ -23,7 +23,7 @@ export function Camera () {
 
   const [ref, api] = useSphere(() => ({
     type: 'Dynamic',
-    position: [1, -1, 5]
+    position: [0, 0, 1.5]
   }))
 
   const pos = useRef([0, 0, 0])

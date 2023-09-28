@@ -4,7 +4,7 @@ import { useSphere } from '@react-three/cannon'
 import { useState } from 'react'
 
 export function Atom ({ id, position }) {
-  const [addAtom, removeAtom] = useStore(state => [state.addAtom, state.removeAtom])
+  const [addAtom, removeAtom, directionCreation] = useStore(state => [state.addAtom, state.removeAtom, state.directionCreation])
   const radius = 0.3 // ! Radio del atomo
 
   const [ref] = useSphere(() => ({
@@ -31,7 +31,26 @@ export function Atom ({ id, position }) {
         e.stopPropagation()
         removeAtom(x, y, z)
       } else {
-        addAtom(x, y + 0.8, z)
+        switch (directionCreation) {
+          case 'directionUp':
+            addAtom(x, y + 0.8, z)
+            break
+          case 'directionDown':
+            addAtom(x, y - 0.8, z)
+            break
+          case 'directionRight':
+            addAtom(x + 0.8, y, z)
+            break
+          case 'directionLeft':
+            addAtom(x - 0.8, y, z)
+            break
+          case 'directionFront':
+            addAtom(x, y, z + 0.8)
+            break
+          case 'directionBack':
+            addAtom(x, y, z - 0.8)
+            break
+        }
       }
     }}
     >

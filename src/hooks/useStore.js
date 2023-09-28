@@ -3,14 +3,11 @@ import { create } from 'zustand'
 
 export const useStore = create(set => ({
   option: 'sphere',
+  directionCreation: 'directionUp',
   atoms: [
     {
       id: nanoid(),
       pos: [0, 0, 0]
-    },
-    {
-      id: nanoid(),
-      pos: [2, -2, -2]
     }
   ],
   addAtom: (x, y, z) => {
@@ -31,5 +28,9 @@ export const useStore = create(set => ({
   },
   setOption: (option) => {
     set(() => ({ option }))
+  },
+  setDirectionCreation: (directionCreation) => {
+    set(() => ({ directionCreation }))
   }
+
 }))

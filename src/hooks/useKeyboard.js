@@ -10,22 +10,39 @@ const ACTIONS_KEYBOARD_MAP = {
   Digit1: 'connector',
   Digit2: 'cursor',
   Digit3: 'del',
-  Digit4: 'sphere'
+  Digit4: 'sphere',
+  Numpad2: 'directionDown',
+  Numpad8: 'directionUp',
+  Numpad6: 'directionRight',
+  Numpad4: 'directionLeft',
+  Numpad3: 'directionFront',
+  Numpad9: 'directionBack'
+
 }
 
 export const useKeyboard = () => {
   const [actions, setActions] = useState({
+    // ! Movimiento de la camara
     moveForward: false,
     moveBackward: false,
     moveLeft: false,
     moveRight: false,
     moveUp: false,
     moveDown: false,
+    // ! Opciones del menú
     createAtom: false,
     cursor: false,
     sphere: false,
     connector: false,
-    del: false
+    del: false,
+    // ! Opciones de dirección de creación
+    directionUp: false,
+    directionDown: false,
+    directionRight: false,
+    directionLeft: false,
+    directionFront: false,
+    directionBack: false
+
   })
 
   useEffect(() => {
