@@ -3,8 +3,10 @@ import { useFrame, useThree } from '@react-three/fiber'
 import { useSphere } from '@react-three/cannon'
 import { useEffect, useRef } from 'react'
 import { Vector3 } from 'three'
+import { useStore } from '../hooks/useStore'
 
 export function Camera () {
+  const [addAtom] = useStore(state => [state.addAtom])
   const CAMERA_SPEED = 6
 
   const {
@@ -13,7 +15,8 @@ export function Camera () {
     moveLeft,
     moveRight,
     moveUp,
-    moveDown
+    moveDown,
+    createAtom
   } = useKeyboard()
 
   const { camera } = useThree()
@@ -71,6 +74,25 @@ export function Camera () {
       direction.y,
       direction.z
     )
+
+    if (createAtom) {
+      // ! Obtén la dirección en la que está apuntando la cámara
+      const cameraDirection = new Vector3(0, 0, -1)
+      cameraDirection.applyEuler(camera.rotation)
+
+      // ! Multiplica la dirección por 2 unidades
+      cameraDirection.multiplyScalar(1.2)
+
+      // ! Calcula la nueva posición del átomo
+      const newAtomPosition = new Vector3(
+        pos.current[0] + cameraDirection.x,
+        pos.current[1] + cameraDirection.y,
+        pos.current[2] + cameraDirection.z
+      )
+
+      // ! Llama a la función addAtom con la nueva posición
+      addAtom(newAtomPosition.x, newAtomPosition.y, newAtomPosition.z)
+    }
   })
   return (<mesh ref={ref} />)
 }

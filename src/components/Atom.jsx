@@ -5,6 +5,7 @@ import { useState } from 'react'
 
 export function Atom ({ id, position }) {
   const [addAtom, removeAtom] = useStore(state => [state.addAtom, state.removeAtom])
+  const radius = 0.3 // ! Radio del atomo
 
   const [ref] = useSphere(() => ({
     type: 'Static',
@@ -30,12 +31,11 @@ export function Atom ({ id, position }) {
         e.stopPropagation()
         removeAtom(x, y, z)
       } else {
-        addAtom(x + 3, y, z)
+        addAtom(x, y + 0.8, z)
       }
     }}
     >
-      <sphereGeometry/>
-      <meshStandardMaterial
+      <sphereGeometry args={[radius, 32, 32]} />      <meshStandardMaterial
       color={isHovered ? '#2aa' : '#2af'}
       />
     </mesh>
