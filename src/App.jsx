@@ -7,6 +7,12 @@ import { FPV } from './components/FPV'
 import { Camera } from './components/Camera'
 import { DirectionCreation } from './components/DirectionCreation'
 
+// ! TODO
+// ! Cambiar el boton con el se crean nuevas moleculas
+// ! Crear el piso
+// ! Eliminar las opciones
+// ! Crear el conector
+
 function App () {
   return (
     <>

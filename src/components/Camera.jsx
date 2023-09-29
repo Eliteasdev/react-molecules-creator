@@ -1,7 +1,7 @@
 import { useKeyboard } from '../hooks/useKeyboard'
 import { useFrame, useThree } from '@react-three/fiber'
 import { useSphere } from '@react-three/cannon'
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Vector3 } from 'three'
 import { useStore } from '../hooks/useStore'
 
@@ -40,6 +40,8 @@ export function Camera () {
     ))
   }, [api.velocity])
 
+  const [createAtomPressed, setCreateAtomPressed] = useState(false)
+
   useFrame(() => {
     camera.position.copy(
       new Vector3(
@@ -76,23 +78,30 @@ export function Camera () {
     )
 
     if (createAtom) {
-      // ! Obtén la dirección en la que está apuntando la cámara
-      const cameraDirection = new Vector3(0, 0, -1)
-      cameraDirection.applyEuler(camera.rotation)
+      if (!createAtomPressed) {
+        setCreateAtomPressed(true)
 
-      // ! Multiplica la dirección por 2 unidades
-      cameraDirection.multiplyScalar(1.2)
+        // ¡Obtén la dirección en la que está apuntando la cámara y realiza la lógica para agregar el átomo aquí!
+        const cameraDirection = new Vector3(0, 0, -1)
+        cameraDirection.applyEuler(camera.rotation)
 
-      // ! Calcula la nueva posición del átomo
-      const newAtomPosition = new Vector3(
-        pos.current[0] + cameraDirection.x,
-        pos.current[1] + cameraDirection.y,
-        pos.current[2] + cameraDirection.z
-      )
+        // Multiplica la dirección por 2 unidades
+        cameraDirection.multiplyScalar(1.2)
 
-      // ! Llama a la función addAtom con la nueva posición
-      addAtom(newAtomPosition.x, newAtomPosition.y, newAtomPosition.z)
+        // Calcula la nueva posición del átomo
+        const newAtomPosition = new Vector3(
+          pos.current[0] + cameraDirection.x,
+          pos.current[1] + cameraDirection.y,
+          pos.current[2] + cameraDirection.z
+        )
+
+        // Llama a la función addAtom con la nueva posición
+        addAtom(newAtomPosition.x, newAtomPosition.y, newAtomPosition.z)
+      }
+    } else {
+      setCreateAtomPressed(false)
     }
   })
+
   return (<mesh ref={ref} />)
 }

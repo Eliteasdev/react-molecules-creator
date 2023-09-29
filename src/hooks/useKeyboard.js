@@ -6,7 +6,7 @@ const ACTIONS_KEYBOARD_MAP = {
   KeyD: 'moveRight',
   KeyE: 'moveUp',
   KeyF: 'moveDown',
-  KeyC: 'createAtom',
+  KeyU: 'createAtom',
   Digit1: 'connector',
   Digit2: 'cursor',
   Digit3: 'del',

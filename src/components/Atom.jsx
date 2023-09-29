@@ -3,6 +3,8 @@ import { useStore } from '../hooks/useStore'
 import { useSphere } from '@react-three/cannon'
 import { useState } from 'react'
 
+const DISTANCE_BETWEEN_MOLECULES = 1.2
+
 export function Atom ({ id, position }) {
   const [addAtom, removeAtom, directionCreation] = useStore(state => [state.addAtom, state.removeAtom, state.directionCreation])
   const radius = 0.3 // ! Radio del atomo
@@ -33,22 +35,22 @@ export function Atom ({ id, position }) {
       } else {
         switch (directionCreation) {
           case 'directionUp':
-            addAtom(x, y + 0.8, z)
+            addAtom(x, y + DISTANCE_BETWEEN_MOLECULES, z)
             break
           case 'directionDown':
-            addAtom(x, y - 0.8, z)
+            addAtom(x, y - DISTANCE_BETWEEN_MOLECULES, z)
             break
           case 'directionRight':
-            addAtom(x + 0.8, y, z)
+            addAtom(x + DISTANCE_BETWEEN_MOLECULES, y, z)
             break
           case 'directionLeft':
-            addAtom(x - 0.8, y, z)
+            addAtom(x - DISTANCE_BETWEEN_MOLECULES, y, z)
             break
           case 'directionFront':
-            addAtom(x, y, z + 0.8)
+            addAtom(x, y, z + DISTANCE_BETWEEN_MOLECULES)
             break
           case 'directionBack':
-            addAtom(x, y, z - 0.8)
+            addAtom(x, y, z - DISTANCE_BETWEEN_MOLECULES)
             break
         }
       }
