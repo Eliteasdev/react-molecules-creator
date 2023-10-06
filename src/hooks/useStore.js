@@ -26,9 +26,6 @@ export const useStore = create(set => ({
       })
     }))
   },
-  setOption: (option) => {
-    set(() => ({ option }))
-  },
   setDirectionCreation: (directionCreation) => {
     set(() => ({ directionCreation }))
   }

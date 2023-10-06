@@ -7,10 +7,6 @@ const ACTIONS_KEYBOARD_MAP = {
   KeyE: 'moveUp',
   KeyF: 'moveDown',
   KeyU: 'createAtom',
-  Digit1: 'connector',
-  Digit2: 'cursor',
-  Digit3: 'del',
-  Digit4: 'sphere',
   Numpad2: 'directionDown',
   Numpad8: 'directionUp',
   Numpad6: 'directionRight',
@@ -30,11 +26,6 @@ export const useKeyboard = () => {
     moveUp: false,
     moveDown: false,
     // ! Opciones del menú
-    createAtom: false,
-    cursor: false,
-    sphere: false,
-    connector: false,
-    del: false,
     // ! Opciones de dirección de creación
     directionUp: false,
     directionDown: false,
