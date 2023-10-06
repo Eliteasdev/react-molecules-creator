@@ -5,6 +5,7 @@ import { Molecule } from './components/Molecule'
 import { FPV } from './components/FPV'
 import { Camera } from './components/Camera'
 import { DirectionCreation } from './components/DirectionCreation'
+import { Ground } from './components/Ground'
 
 function App () {
   return (
@@ -17,6 +18,7 @@ function App () {
       <Physics>
         <Molecule/>
         <Camera/>
+        <Ground/>
       </Physics>
     </Canvas>
     <DirectionCreation/>

@@ -3,7 +3,7 @@ import { useStore } from '../hooks/useStore'
 import { useSphere } from '@react-three/cannon'
 import { useState } from 'react'
 
-const DISTANCE_BETWEEN_MOLECULES = 1.2
+const DISTANCE_BETWEEN_MOLECULES = 1.0
 
 export function Atom ({ id, position }) {
   const [addAtom, removeAtom, directionCreation] = useStore((state) => [
