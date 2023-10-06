@@ -24,7 +24,6 @@ export function Menu () {
     const selectedOption = Object
       .entries(options)
       .find(([option, isEnabled]) => isEnabled)
-    console.log(selectedOption)
     if (selectedOption) {
       const [optionName] = selectedOption
       setOption(optionName)

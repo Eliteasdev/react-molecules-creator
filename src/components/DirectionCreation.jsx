@@ -31,7 +31,6 @@ export function DirectionCreation () {
     if (selectedDirection) {
       const [optionName] = selectedDirection
       setDirectionCreation(optionName)
-      console.log(directionCreation)
     }
   }, [directionUp, directionDown, directionRight, directionLeft, directionFront, directionBack])
   return (

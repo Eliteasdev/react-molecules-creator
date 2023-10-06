@@ -81,21 +81,20 @@ export function Camera () {
       if (!createAtomPressed) {
         setCreateAtomPressed(true)
 
-        // ¡Obtén la dirección en la que está apuntando la cámara y realiza la lógica para agregar el átomo aquí!
         const cameraDirection = new Vector3(0, 0, -1)
         cameraDirection.applyEuler(camera.rotation)
 
-        // Multiplica la dirección por 2 unidades
+        // ! Multiplica la dirección por 2 unidades
         cameraDirection.multiplyScalar(1.2)
 
-        // Calcula la nueva posición del átomo
+        // ! Calcula la nueva posición del átomo
         const newAtomPosition = new Vector3(
           pos.current[0] + cameraDirection.x,
           pos.current[1] + cameraDirection.y,
           pos.current[2] + cameraDirection.z
         )
 
-        // Llama a la función addAtom con la nueva posición
+        // ! Llama a la función addAtom con la nueva posición
         addAtom(newAtomPosition.x, newAtomPosition.y, newAtomPosition.z)
       }
     } else {
