@@ -13,7 +13,7 @@ export function Molecule () {
 
       {connectors.length !== 0
         ? connectors.map(({ id, start, end }) => {
-          return <Connector key={id} startPoint={start} endPoint={end} />
+          return <Connector key={id} startPoint={start} endPoint={end} id={id} />
         })
         : console.log('')}
     </>

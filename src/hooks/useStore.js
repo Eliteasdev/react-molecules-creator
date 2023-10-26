@@ -42,6 +42,13 @@ export const useStore = create(set => ({
       })
     }))
   },
+  removeConnector: (id) => {
+    set(state => ({
+      connectors: state.connectors.filter(connector => {
+        return id !== connector.id
+      })
+    }))
+  },
   setDirectionCreation: (directionCreation) => {
     set(() => ({ directionCreation }))
   }
