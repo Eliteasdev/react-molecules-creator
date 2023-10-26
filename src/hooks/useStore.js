@@ -25,6 +25,7 @@ export const useStore = create(set => ({
       }]
     }))
   },
+  connector: [],
   addConnector: (start, end) => {
     set(state => ({
       connectors: [...state.connectors, {
@@ -51,6 +52,11 @@ export const useStore = create(set => ({
   },
   setDirectionCreation: (directionCreation) => {
     set(() => ({ directionCreation }))
+  },
+  setConnector: (vector) => {
+    set(() => ({
+      connector: vector
+    }))
   }
 
 }))

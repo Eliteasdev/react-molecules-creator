@@ -6,12 +6,16 @@ import { useState } from 'react'
 const DISTANCE_BETWEEN_MOLECULES = 1.0
 
 export function Atom ({ id, position }) {
-  const [addAtom, removeAtom, directionCreation, addConnector] = useStore((state) => [
+  const [addAtom, removeAtom, directionCreation, addConnector, connector, setConnector] = useStore((state) => [
     state.addAtom,
     state.removeAtom,
     state.directionCreation,
-    state.addConnector
+    state.addConnector,
+    state.connector,
+    state.setConnector
   ])
+
+  const [connectorIndex, setConnectorIndex] = useState(false)
 
   const radius = 0.3 // ! Radio del atomo
 
@@ -41,6 +45,13 @@ export function Atom ({ id, position }) {
         if (e.altKey) {
           e.stopPropagation()
           removeAtom(x, y, z)
+        } else if (e.ctrlKey) {
+          if (connector.length === 0) {
+            setConnector([x, y, z])
+          } else {
+            addConnector(connector, [x, y, z])
+            setConnector([])
+          }
         } else {
           switch (directionCreation) {
             case 'directionUp':
