@@ -7,6 +7,8 @@ import { Camera } from './components/Camera'
 import { DirectionCreation } from './components/DirectionCreation'
 import { Ground } from './components/Ground'
 
+import { TubeBetweenPoints } from './components/TubeBetweenPoints'
+
 function App () {
   return (
     <>

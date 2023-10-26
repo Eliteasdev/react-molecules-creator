@@ -6,10 +6,11 @@ import { useState } from 'react'
 const DISTANCE_BETWEEN_MOLECULES = 1.0
 
 export function Atom ({ id, position }) {
-  const [addAtom, removeAtom, directionCreation] = useStore((state) => [
+  const [addAtom, removeAtom, directionCreation, addConnector] = useStore((state) => [
     state.addAtom,
     state.removeAtom,
-    state.directionCreation
+    state.directionCreation,
+    state.addConnector
   ])
 
   const radius = 0.3 // ! Radio del atomo
@@ -44,21 +45,27 @@ export function Atom ({ id, position }) {
           switch (directionCreation) {
             case 'directionUp':
               addAtom(x, y + DISTANCE_BETWEEN_MOLECULES, z)
+              addConnector([x, y, z], [x, y + DISTANCE_BETWEEN_MOLECULES, z])
               break
             case 'directionDown':
               addAtom(x, y - DISTANCE_BETWEEN_MOLECULES, z)
+              addConnector([x, y, z], [x, y - DISTANCE_BETWEEN_MOLECULES, z])
               break
             case 'directionRight':
               addAtom(x + DISTANCE_BETWEEN_MOLECULES, y, z)
+              addConnector([x, y, z], [x + DISTANCE_BETWEEN_MOLECULES, y, z])
               break
             case 'directionLeft':
               addAtom(x - DISTANCE_BETWEEN_MOLECULES, y, z)
+              addConnector([x, y, z], [x - DISTANCE_BETWEEN_MOLECULES, y, z])
               break
             case 'directionFront':
               addAtom(x, y, z + DISTANCE_BETWEEN_MOLECULES)
+              addConnector([x, y, z], [x, y, z + DISTANCE_BETWEEN_MOLECULES])
               break
             case 'directionBack':
               addAtom(x, y, z - DISTANCE_BETWEEN_MOLECULES)
+              addConnector([x, y, z], [x, y, z - DISTANCE_BETWEEN_MOLECULES])
               break
           }
         }
