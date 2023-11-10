@@ -15,8 +15,6 @@ export function Atom ({ id, position }) {
     state.setConnector
   ])
 
-  const [connectorIndex, setConnectorIndex] = useState(false)
-
   const radius = 0.3 // ! Radio del atomo
 
   const [ref] = useSphere(() => ({

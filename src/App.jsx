@@ -8,6 +8,7 @@ import { DirectionCreation } from './components/DirectionCreation'
 import { Ground } from './components/Ground'
 
 import { TubeBetweenPoints } from './components/TubeBetweenPoints'
+import { Info } from './components/Info'
 
 function App () {
   return (
@@ -23,6 +24,7 @@ function App () {
         <Ground/>
       </Physics>
     </Canvas>
+    <Info/>
     <DirectionCreation/>
     <div className='pointer'>+</div>
     </>

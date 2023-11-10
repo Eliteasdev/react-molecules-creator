@@ -36,16 +36,20 @@ body{
 .menu-selector{
   position: absolute;
   display: flex;
-  left: 50%;
-  top: 24px;
-  transform: translate(-50%);
+  left: 85%;
+  top: 16px;
+  /* transform: translate(-50%); */
 }
 
 .menu-option{
   display: flex;
+  /* background: #334155; */
   background: #334155;
+  opacity: 60%;
   margin: 4px;
   border-radius: 8px;
+  color: white;
+  padding: 8px;
 }
 
 .menu-selector img{
