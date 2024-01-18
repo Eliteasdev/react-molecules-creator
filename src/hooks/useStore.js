@@ -1,7 +1,7 @@
 import { nanoid } from 'nanoid'
 import { create } from 'zustand'
 
-export const useStore = create(set => ({
+export const useStore = create((set, get) => ({
   option: 'sphere',
   directionCreation: 'directionUp',
   atoms: [],
@@ -20,6 +20,8 @@ export const useStore = create(set => ({
       }]
     }
     ))
+    const atomsJSON = JSON.stringify(useStore.getState().atoms)
+    window.history.replaceState(null, null, btoa(atomsJSON))
   },
   connector: [],
   addConnector: (start, end) => {
@@ -53,9 +55,6 @@ export const useStore = create(set => ({
     set(() => ({
       connector: vector
     }))
-  },
-  setURL: (atoms) => {
-    window.history.replaceState(null, null, atoms)
   },
   setInitialState: (initialState) => {
     set(() => ({

@@ -29,6 +29,7 @@ function App () {
       ])
     } else {
       const urlDecode = atob(initialURL)
+      console.log(urlDecode)
       setInitialState(JSON.parse(urlDecode))
     }
   }, [])

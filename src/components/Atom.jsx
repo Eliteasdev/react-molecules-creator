@@ -6,7 +6,8 @@ import { useState } from 'react'
 const DISTANCE_BETWEEN_MOLECULES = 1.0
 
 export function Atom ({ id, position }) {
-  const [addAtom, removeAtom, directionCreation, addConnector, connector, setConnector] = useStore((state) => [
+  const [atoms, addAtom, removeAtom, directionCreation, addConnector, connector, setConnector] = useStore((state) => [
+    state.atoms,
     state.addAtom,
     state.removeAtom,
     state.directionCreation,
