@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 const ACTIONS_KEYBOARD_MAP = {
+  Digit1: 'hexagon',
   KeyW: 'moveForward',
   KeyS: 'moveBackward',
   KeyA: 'moveLeft',
@@ -18,13 +19,15 @@ const ACTIONS_KEYBOARD_MAP = {
 
 export const useKeyboard = () => {
   const [actions, setActions] = useState({
-    // ! Movimiento de la camara
+    // ! Movimiento de la cámara
     moveForward: false,
     moveBackward: false,
     moveLeft: false,
     moveRight: false,
     moveUp: false,
     moveDown: false,
+    // ! Trigger para la creación de un átomo en un lugar aleatorio
+    createAtom: false,
     // ! Opciones del menú
     // ! Opciones de dirección de creación
     directionUp: false,
@@ -32,7 +35,9 @@ export const useKeyboard = () => {
     directionRight: false,
     directionLeft: false,
     directionFront: false,
-    directionBack: false
+    directionBack: false,
+    // ! Figuras comunes
+    Digit1: false
 
   })
 

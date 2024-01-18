@@ -11,6 +11,7 @@ body,
   padding: 0;
   user-select: none;
   overflow: hidden;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 body{
@@ -61,4 +62,47 @@ body{
   background: #6c93ca;
   margin: 4px;
   border-radius: 8px;
+}
+
+.instructions{
+  position: absolute;
+  display: flex;
+  left: 60%;
+  top: 16px;
+  margin-right: 16px;
+  background-color: #6c93ca;
+  padding: 16px;
+  opacity: 60%;
+  border-radius: 8px;
+  min-width: 10%;
+}
+
+.instructions-container p{
+  font-weight: 500;
+  color: aliceblue;
+}
+
+.instructions-container p > span{
+  color: #083344;
+  font-weight: bold;
+}
+
+
+.info{
+  position: absolute;
+  display: flex;
+  left: 75%;
+  top: 16px;
+  margin-right: 8px;
+  background-color: #6c93ca;
+  padding-left: 16px;
+  padding-right: 16px;
+  opacity: 60%;
+  border-radius: 8px;
+  color: white;
+}
+
+.info span{
+  font-weight: bold;
+  color: #083344;
 }

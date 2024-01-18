@@ -15,7 +15,7 @@ export function Molecule () {
         ? connectors.map(({ id, start, end }) => {
           return <Connector key={id} startPoint={start} endPoint={end} id={id} />
         })
-        : console.log('')}
+        : <></>}
     </>
   )
 }

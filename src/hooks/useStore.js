@@ -4,12 +4,7 @@ import { create } from 'zustand'
 export const useStore = create(set => ({
   option: 'sphere',
   directionCreation: 'directionUp',
-  atoms: [
-    {
-      id: nanoid(),
-      pos: [0, 0, 0]
-    }
-  ],
+  atoms: [],
   connectors: [
     // {
     // id: nanoid(),
@@ -23,7 +18,8 @@ export const useStore = create(set => ({
         id: nanoid(),
         pos: [x, y, z]
       }]
-    }))
+    }
+    ))
   },
   connector: [],
   addConnector: (start, end) => {
@@ -57,6 +53,15 @@ export const useStore = create(set => ({
     set(() => ({
       connector: vector
     }))
+  },
+  setURL: (atoms) => {
+    window.history.replaceState(null, null, atoms)
+  },
+  setInitialState: (initialState) => {
+    set(() => ({
+      atoms: initialState
+    }
+    ))
   }
 
 }))
