@@ -4,12 +4,17 @@ import { create } from 'zustand'
 export const useStore = create((set, get) => ({
   option: 'sphere',
   directionCreation: 'directionUp',
-  atoms: [],
+  atoms: [
+    // {
+    //   id: nanoid(),
+    //   pos: [0, 0, 0]
+    // }
+  ],
   connectors: [
     // {
-    // id: nanoid(),
-    // start: [0, 0, 0],
-    // end: [0, 15, 10]
+    //   id: nanoid(),
+    //   start: [0, 0, 0],
+    //   end: [0, 15, 10]
     // }
   ],
   addAtom: (x, y, z) => {
@@ -21,7 +26,9 @@ export const useStore = create((set, get) => ({
     }
     ))
     const atomsJSON = JSON.stringify(useStore.getState().atoms)
-    window.history.replaceState(null, null, btoa(atomsJSON))
+    const connectorsJSON = JSON.stringify(useStore.getState().connectors)
+    const structureToURL = { atoms: atomsJSON, connectors: connectorsJSON }
+    window.history.replaceState(null, null, btoa(JSON.stringify(structureToURL)))
   },
   connector: [],
   addConnector: (start, end) => {
@@ -32,6 +39,10 @@ export const useStore = create((set, get) => ({
         end
       }]
     }))
+    const atomsJSON = JSON.stringify(useStore.getState().atoms)
+    const connectorsJSON = JSON.stringify(useStore.getState().connectors)
+    const structureToURL = { atoms: atomsJSON, connectors: connectorsJSON }
+    window.history.replaceState(null, null, btoa(JSON.stringify(structureToURL)))
   },
   removeAtom: (x, y, z) => {
     set(state => ({
@@ -40,6 +51,10 @@ export const useStore = create((set, get) => ({
         return X !== x || Y !== y | Z !== z
       })
     }))
+    const atomsJSON = JSON.stringify(useStore.getState().atoms)
+    const connectorsJSON = JSON.stringify(useStore.getState().connectors)
+    const structureToURL = { atoms: atomsJSON, connectors: connectorsJSON }
+    window.history.replaceState(null, null, btoa(JSON.stringify(structureToURL)))
   },
   removeConnector: (id) => {
     set(state => ({
@@ -47,6 +62,10 @@ export const useStore = create((set, get) => ({
         return id !== connector.id
       })
     }))
+    const atomsJSON = JSON.stringify(useStore.getState().atoms)
+    const connectorsJSON = JSON.stringify(useStore.getState().connectors)
+    const structureToURL = { atoms: atomsJSON, connectors: connectorsJSON }
+    window.history.replaceState(null, null, btoa(JSON.stringify(structureToURL)))
   },
   setDirectionCreation: (directionCreation) => {
     set(() => ({ directionCreation }))
@@ -56,9 +75,10 @@ export const useStore = create((set, get) => ({
       connector: vector
     }))
   },
-  setInitialState: (initialState) => {
+  setInitialState: (atoms, connectors) => {
     set(() => ({
-      atoms: initialState
+      atoms,
+      connectors
     }
     ))
   }

@@ -24,13 +24,15 @@ function App () {
       setInitialState([
         {
           id: nanoid(),
-          pos: [0, 0, 0]
+          pos: [0, 0.6, 0]
         }
-      ])
+      ], [])
     } else {
+      // ! String con el objeto
       const urlDecode = atob(initialURL)
-      console.log(urlDecode)
-      setInitialState(JSON.parse(urlDecode))
+      // ! {atoms: {}, connectors {}}
+      const { atoms, connectors } = JSON.parse(urlDecode)
+      setInitialState(JSON.parse(atoms), JSON.parse(connectors))
     }
   }, [])
 

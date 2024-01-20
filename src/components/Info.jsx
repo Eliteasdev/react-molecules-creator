@@ -1,8 +1,8 @@
 export function Info () {
   return (
     <div className="info">
-      <p>
-        Presiona <span>I</span> para desplegar las instrucciones
+      <p className="">
+        Presiona <span className="font-bold">Ctrl + k</span>
       </p>
     </div>
   )
