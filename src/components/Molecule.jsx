@@ -7,8 +7,8 @@ export function Molecule () {
   const [connectors] = useStore((state) => [state.connectors])
   return (
     <>
-      {atoms.map(({ id, pos }) => {
-        return <Atom key={id} id={id} position={pos} />
+      {atoms.map(({ id, pos, radius, color }) => {
+        return <Atom key={id} id={id} position={pos} radius={radius} color={color} />
       })}
 
       {connectors.length !== 0

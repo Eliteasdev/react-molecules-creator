@@ -24,7 +24,9 @@ function App () {
       setInitialState([
         {
           id: nanoid(),
-          pos: [0, 0.6, 0]
+          pos: [0, 0.6, 0],
+          radius: 0.3,
+          color: '#2af'
         }
       ], [])
     } else {

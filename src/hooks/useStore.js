@@ -4,6 +4,14 @@ import { create } from 'zustand'
 export const useStore = create((set, get) => ({
   option: 'sphere',
   directionCreation: 'directionUp',
+  radiusValue: 0.2,
+  setRadiusValue: (radiusValue) => {
+    set(() => ({ radiusValue }))
+  },
+  colorValue: '#4ade80',
+  setColorValue: (colorValue) => {
+    set(() => ({ colorValue }))
+  },
   atoms: [
     // {
     //   id: nanoid(),
@@ -17,11 +25,13 @@ export const useStore = create((set, get) => ({
     //   end: [0, 15, 10]
     // }
   ],
-  addAtom: (x, y, z) => {
+  addAtom: (x, y, z, rad, color) => {
     set(state => ({
       atoms: [...state.atoms, {
         id: nanoid(),
-        pos: [x, y, z]
+        pos: [x, y, z],
+        radius: rad,
+        color
       }]
     }
     ))

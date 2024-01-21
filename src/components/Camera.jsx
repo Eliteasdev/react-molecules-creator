@@ -6,7 +6,7 @@ import { Vector3 } from 'three'
 import { useStore } from '../hooks/useStore'
 
 export function Camera () {
-  const [addAtom] = useStore(state => [state.addAtom])
+  const [addAtom, radiusValue, colorValue] = useStore(state => [state.addAtom, state.radiusValue, state.colorValue])
   const CAMERA_SPEED = 3
 
   const {
@@ -95,7 +95,7 @@ export function Camera () {
         )
 
         // ! Llama a la función addAtom con la nueva posición
-        addAtom(newAtomPosition.x, newAtomPosition.y, newAtomPosition.z)
+        addAtom(newAtomPosition.x, newAtomPosition.y, newAtomPosition.z, radiusValue, colorValue)
       }
     } else {
       setCreateAtomPressed(false)
