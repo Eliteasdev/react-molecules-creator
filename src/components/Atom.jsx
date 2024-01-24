@@ -85,7 +85,7 @@ export function Atom ({ id, position, radius, color }) {
       }}
     >
       <sphereGeometry args={[radius, 32, 32]} />
-      <meshStandardMaterial color={isHovered ? 'red' : color} transparent={true} opacity={isHovered ? 0.6 : 1}/>
+      <meshStandardMaterial color={isHovered ? 'red' : color} transparent={true} opacity={isHovered ? 0.6 : 1} metalness={0} roughness={1}/>
     </mesh>
   )
 }

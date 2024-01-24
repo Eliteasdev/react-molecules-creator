@@ -2,9 +2,14 @@ import { nanoid } from 'nanoid'
 import { create } from 'zustand'
 
 export const useStore = create((set, get) => ({
+  controlMovePalette: false,
   option: 'sphere',
   directionCreation: 'directionUp',
   radiusValue: 0.2,
+  colorValue: '#4ade80',
+  setControlMovePalette: (controlMovePalette) => {
+    set(() => ({ controlMovePalette }))
+  },
   setRadiusValue: (radiusValue) => {
     set(() => ({ radiusValue }))
   },

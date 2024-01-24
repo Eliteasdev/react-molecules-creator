@@ -6,7 +6,7 @@ import { Vector3 } from 'three'
 import { useStore } from '../hooks/useStore'
 
 export function Camera () {
-  const [addAtom, radiusValue, colorValue] = useStore(state => [state.addAtom, state.radiusValue, state.colorValue])
+  const [addAtom, radiusValue, colorValue, controlMovePalette] = useStore(state => [state.addAtom, state.radiusValue, state.colorValue, state.controlMovePalette])
   const CAMERA_SPEED = 3
 
   const {
@@ -56,12 +56,12 @@ export function Camera () {
     const frontVector = new Vector3(
       0,
       0,
-      (moveBackward ? 1 : 0) - (moveForward ? 1 : 0)
+      controlMovePalette ? 0 : (moveBackward ? 1 : 0) - (moveForward ? 1 : 0)
     )
 
     const sideVector = new Vector3(
-      (moveLeft ? 1 : 0) - (moveRight ? 1 : 0),
-      (moveDown ? 1 : 0) - (moveUp ? 1 : 0),
+      controlMovePalette ? 0 : (moveLeft ? 1 : 0) - (moveRight ? 1 : 0),
+      controlMovePalette ? 0 : (moveDown ? 1 : 0) - (moveUp ? 1 : 0),
       0
     )
 

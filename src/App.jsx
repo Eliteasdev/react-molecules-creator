@@ -4,6 +4,7 @@ import { nanoid } from 'nanoid'
 import { Sky } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
 import { Physics } from '@react-three/cannon'
+import { Fog } from 'three'
 
 import { useStore } from './hooks/useStore'
 
