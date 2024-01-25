@@ -4,6 +4,7 @@ import { Dialog, Combobox, Transition } from '@headlessui/react'
 import SearchIcon from './SearchIcon.jsx'
 import { useStore } from '../hooks/useStore.js'
 import { isHexColor } from './utils/ColorChecker.js'
+import { isFloat } from './utils/FloatChecker.js'
 
 export default function Palette ({ options }) {
   const [setControlMovePalette, controlMovePalette, setRadiusValue, setColorValue] = useStore(state => [state.setControlMovePalette, state.controlMovePalette, state.setRadiusValue, state.setColorValue])
@@ -65,10 +66,28 @@ export default function Palette ({ options }) {
               // ! Aquí sucede la magia
               setIsOpen(false)
               if (option.id === '1') {
-                setRadiusValue(parseFloat(query.split(':')[1]))
+                isFloat(parseFloat(query.split(':')[1])) ? setRadiusValue(parseFloat(query.split(':')[1])) : console.log('No es el valor valido para el radio')
               }
               if (option.id === '2') {
-                isHexColor('#' + query.split(':')[1].toLowerCase()) ? setColorValue('#' + query.split(':')[1].toLowerCase()) : console.log('Noe es el valor de un color')
+                isHexColor('#' + query.split(':')[1].toLowerCase()) ? setColorValue('#' + query.split(':')[1].toLowerCase()) : console.log('No es el valor de un color')
+              }
+              if (option.id === '3') {
+                setColorValue('#2af')
+              }
+              if (option.id === '4') {
+                setColorValue('#2dd4bf')
+              }
+              if (option.id === '5') {
+                setColorValue('#a78bfa')
+              }
+              if (option.id === '6') {
+                setRadiusValue(0.2)
+              }
+              if (option.id === '7') {
+                setRadiusValue(0.3)
+              }
+              if (option.id === '8') {
+                setRadiusValue(0.1)
               }
 
               setQuery('')

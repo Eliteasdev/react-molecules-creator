@@ -4,7 +4,6 @@ import { nanoid } from 'nanoid'
 import { Sky } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
 import { Physics } from '@react-three/cannon'
-import { Fog } from 'three'
 
 import { useStore } from './hooks/useStore'
 
@@ -26,7 +25,7 @@ function App () {
         {
           id: nanoid(),
           pos: [0, 0.6, 0],
-          radius: 0.3,
+          radius: 0.2,
           color: '#2af'
         }
       ], [])
@@ -69,7 +68,8 @@ function App () {
           <Ground />
         </Physics>
       </Canvas>
-      {instructions ? <Info /> : <Instructions />}
+      {/* {instructions ? <Info /> : <Instructions />} */}
+      <Info/>
       <DirectionCreation />
       <div className="pointer">+</div>
     </>

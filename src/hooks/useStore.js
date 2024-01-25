@@ -6,14 +6,13 @@ export const useStore = create((set, get) => ({
   option: 'sphere',
   directionCreation: 'directionUp',
   radiusValue: 0.2,
-  colorValue: '#4ade80',
+  colorValue: '#2af',
   setControlMovePalette: (controlMovePalette) => {
     set(() => ({ controlMovePalette }))
   },
   setRadiusValue: (radiusValue) => {
     set(() => ({ radiusValue }))
   },
-  colorValue: '#4ade80',
   setColorValue: (colorValue) => {
     set(() => ({ colorValue }))
   },
