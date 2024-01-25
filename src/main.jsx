@@ -5,7 +5,7 @@ import './index.css'
 import Palette from './CommandPalette/Palette.jsx'
 
 const options = [
-  { id: '1', title: 'Crear un nuevo elemento' }, { id: '2', title: 'Editar un elemento' }, { id: '3', title: 'Borrar un elemento' }, { id: '4', title: 'setValueS', value: 0.3 }]
+  { id: '1', shortcut: 'cs:', title: 'Cambiar el tamaño' }, { id: '2', title: 'Cambiar el color', shortcut: 'cc:' }]
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

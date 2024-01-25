@@ -3,9 +3,10 @@ import { useState, useEffect, Fragment } from 'react'
 import { Dialog, Combobox, Transition } from '@headlessui/react'
 import SearchIcon from './SearchIcon.jsx'
 import { useStore } from '../hooks/useStore.js'
+import { isHexColor } from './utils/ColorChecker.js'
 
 export default function Palette ({ options }) {
-  const [setControlMovePalette, controlMovePalette] = useStore(state => [state.setControlMovePalette, state.controlMovePalette])
+  const [setControlMovePalette, controlMovePalette, setRadiusValue, setColorValue] = useStore(state => [state.setControlMovePalette, state.controlMovePalette, state.setRadiusValue, state.setColorValue])
 
   const [isOpen, setIsOpen] = useState(false)
   const [query, setQuery] = useState('')
@@ -26,14 +27,13 @@ export default function Palette ({ options }) {
 
   const filteredOptions = query
     ? options.filter((option) =>
-      option.title.toLowerCase().includes(query.toLowerCase())
+      option.shortcut.toLowerCase().includes(query.split(':')[0].toLowerCase()) || option.title.toLowerCase().includes(query.split(':')[0].toLowerCase())
     )
     : []
 
   return (
     <Transition.Root show={isOpen} as={Fragment}>
       <Dialog
-        // open={isOpen}
         open={isOpen}
         onClose={() => {
           setIsOpen(false)
@@ -62,8 +62,15 @@ export default function Palette ({ options }) {
         >
           <Combobox
             onChange={(option) => {
+              // ! Aquí sucede la magia
               setIsOpen(false)
-              console.log(option.title)
+              if (option.id === '1') {
+                setRadiusValue(parseFloat(query.split(':')[1]))
+              }
+              if (option.id === '2') {
+                isHexColor('#' + query.split(':')[1].toLowerCase()) ? setColorValue('#' + query.split(':')[1].toLowerCase()) : console.log('Noe es el valor de un color')
+              }
+
               setQuery('')
               setControlMovePalette(false)
             }}
@@ -95,7 +102,10 @@ export default function Palette ({ options }) {
                     }
                     value={option}
                   >
+                    <div className="flex justify-between">
                     <h1>{option.title}</h1>
+                    <p>{option.shortcut}</p>
+                    </div>
                   </Combobox.Option>
                 ))}
               </Combobox.Options>
