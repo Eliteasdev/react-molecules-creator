@@ -22,13 +22,16 @@ function App () {
   useEffect(() => {
     if (initialURL.length === 0) {
       setInitialState([
-        {
-          id: nanoid(),
-          pos: [0, 0.6, 0],
-          radius: 0.2,
-          color: '#2af'
-        }
-      ], [])
+        { id: nanoid(), idAtom: 'sulfur', pos: [0, 0, 0], radius: 0.25, color: '#ff0' },
+        { id: nanoid(), idAtom: 'oxygen', pos: [0.5, 0.5, 0], radius: 0.1, color: '#fff' },
+        { id: nanoid(), idAtom: 'oxygen', pos: [-0.5, 0.5, 0], radius: 0.1, color: '#fff' },
+        { id: nanoid(), idAtom: 'oxygen', pos: [0, -0.6, 0], radius: 0.1, color: '#fff' }
+      ],
+      [
+        { id: nanoid(), start: [0, 0, 0], end: [0.5, 0.5, 0] },
+        { id: nanoid(), start: [0, 0, 0], end: [-0.5, 0.5, 0] },
+        { id: nanoid(), start: [0, 0, 0], end: [0, -0.5, 0] }
+      ])
     } else {
       // ! String con el objeto
       const urlDecode = atob(initialURL)
@@ -69,7 +72,7 @@ function App () {
         </Physics>
       </Canvas>
       {/* {instructions ? <Info /> : <Instructions />} */}
-      <Info/>
+      {/* <Info/> */}
       <DirectionCreation />
       <div className="pointer">+</div>
     </>

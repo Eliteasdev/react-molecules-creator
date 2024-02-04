@@ -7,7 +7,7 @@ import { isHexColor } from './utils/ColorChecker.js'
 import { isFloat } from './utils/FloatChecker.js'
 
 export default function Palette ({ options }) {
-  const [setControlMovePalette, controlMovePalette, setRadiusValue, setColorValue] = useStore(state => [state.setControlMovePalette, state.controlMovePalette, state.setRadiusValue, state.setColorValue])
+  const [setControlMovePalette, controlMovePalette, setRadiusValue, setColorValue, changeSizeColorAtomByIDAtom, colorValue, radiusValue] = useStore(state => [state.setControlMovePalette, state.controlMovePalette, state.setRadiusValue, state.setColorValue, state.changeSizeColorAtomByIDAtom, state.colorValue, state.radiusValue])
 
   const [isOpen, setIsOpen] = useState(false)
   const [query, setQuery] = useState('')
@@ -88,6 +88,12 @@ export default function Palette ({ options }) {
               }
               if (option.id === '8') {
                 setRadiusValue(0.1)
+              }
+              if (option.id === '9') {
+                console.log(query.split(':')[1], query.split(':')[2], query.split(':')[3])
+                const color = isHexColor('#' + query.split(':')[2]) ? '#' + query.split(':')[2] : colorValue
+                const radius = isFloat(parseFloat(query.split(':')[3])) ? parseFloat(query.split(':')[3]) : radiusValue
+                changeSizeColorAtomByIDAtom('oxygen', color, radius)
               }
 
               setQuery('')

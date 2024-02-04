@@ -55,32 +55,32 @@ export function Atom ({ id, position, radius, color }) {
             setConnector([])
           }
         } else {
-          switch (directionCreation) {
-            case 'directionUp':
-              addAtom(x, y + DISTANCE_BETWEEN_MOLECULES, z, radiusValue, colorValue)
-              addConnector([x, y, z], [x, y + DISTANCE_BETWEEN_MOLECULES, z])
-              break
-            case 'directionDown':
-              addAtom(x, y - DISTANCE_BETWEEN_MOLECULES, z, radiusValue, colorValue)
-              addConnector([x, y, z], [x, y - DISTANCE_BETWEEN_MOLECULES, z])
-              break
-            case 'directionRight':
-              addAtom(x + DISTANCE_BETWEEN_MOLECULES, y, z, radiusValue, colorValue)
-              addConnector([x, y, z], [x + DISTANCE_BETWEEN_MOLECULES, y, z])
-              break
-            case 'directionLeft':
-              addAtom(x - DISTANCE_BETWEEN_MOLECULES, y, z, radiusValue, colorValue)
-              addConnector([x, y, z], [x - DISTANCE_BETWEEN_MOLECULES, y, z])
-              break
-            case 'directionFront':
-              addAtom(x, y, z + DISTANCE_BETWEEN_MOLECULES, radiusValue, colorValue)
-              addConnector([x, y, z], [x, y, z + DISTANCE_BETWEEN_MOLECULES])
-              break
-            case 'directionBack':
-              addAtom(x, y, z - DISTANCE_BETWEEN_MOLECULES, radiusValue, colorValue)
-              addConnector([x, y, z], [x, y, z - DISTANCE_BETWEEN_MOLECULES])
-              break
-          }
+          // switch (directionCreation) {
+          //   case 'directionUp':
+          //     addAtom(x, y + DISTANCE_BETWEEN_MOLECULES, z, radiusValue, colorValue)
+          //     addConnector([x, y, z], [x, y + DISTANCE_BETWEEN_MOLECULES, z])
+          //     break
+          //   case 'directionDown':
+          //     addAtom(x, y - DISTANCE_BETWEEN_MOLECULES, z, radiusValue, colorValue)
+          //     addConnector([x, y, z], [x, y - DISTANCE_BETWEEN_MOLECULES, z])
+          //     break
+          //   case 'directionRight':
+          //     addAtom(x + DISTANCE_BETWEEN_MOLECULES, y, z, radiusValue, colorValue)
+          //     addConnector([x, y, z], [x + DISTANCE_BETWEEN_MOLECULES, y, z])
+          //     break
+          //   case 'directionLeft':
+          //     addAtom(x - DISTANCE_BETWEEN_MOLECULES, y, z, radiusValue, colorValue)
+          //     addConnector([x, y, z], [x - DISTANCE_BETWEEN_MOLECULES, y, z])
+          //     break
+          //   case 'directionFront':
+          //     addAtom(x, y, z + DISTANCE_BETWEEN_MOLECULES, radiusValue, colorValue)
+          //     addConnector([x, y, z], [x, y, z + DISTANCE_BETWEEN_MOLECULES])
+          //     break
+          //   case 'directionBack':
+          //     addAtom(x, y, z - DISTANCE_BETWEEN_MOLECULES, radiusValue, colorValue)
+          //     addConnector([x, y, z], [x, y, z - DISTANCE_BETWEEN_MOLECULES])
+          //     break
+          // }
         }
       }}
     >

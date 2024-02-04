@@ -6,6 +6,7 @@ export const options = [
   { id: '5', title: 'Establecer color terciario', shortcut: 'tc' },
   { id: '6', title: 'Establecer tamaño primario', shortcut: 'ps' },
   { id: '7', title: 'Establecer tamaño secundario', shortcut: 'ss' },
-  { id: '8', title: 'Establecer tamaño terciario', shortcut: 'ts' }
+  { id: '8', title: 'Establecer tamaño terciario', shortcut: 'ts' },
+  { id: '9', title: 'Cambiar el color y tamaño a un elemento', shortcut: 'ccs:' }
 
 ]
