@@ -5,13 +5,9 @@ import { Sky } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
 import { Physics } from '@react-three/cannon'
 
-import { useStore } from './hooks/useStore'
+import { useStore } from '@/store'
 
-import { Molecule } from './components/Molecule'
-import { FPV } from './components/FPV'
-import { Camera } from './components/Camera'
-import { DirectionCreation } from './components/DirectionCreation'
-import { Ground } from './components/Ground'
+import { Molecule, FPV, Camera, DirectionCreation, Ground } from '@/components'
 
 function Builder () {
   // ! Inicializar el estado

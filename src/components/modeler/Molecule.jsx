@@ -1,4 +1,4 @@
-import { useStore } from '../hooks/useStore'
+import { useStore } from '../../store/useStore'
 import { Atom } from './Atom'
 import { Connector } from './Connector'
 

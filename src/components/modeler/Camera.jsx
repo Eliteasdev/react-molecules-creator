@@ -1,9 +1,9 @@
-import { useKeyboard } from '../hooks/useKeyboard'
+import { useKeyboard } from '../../hooks/useKeyboard'
 import { useFrame, useThree } from '@react-three/fiber'
 import { useSphere } from '@react-three/cannon'
 import { useEffect, useRef, useState } from 'react'
 import { Vector3 } from 'three'
-import { useStore } from '../hooks/useStore'
+import { useStore } from '../../store/useStore'
 
 export function Camera () {
   const [addAtom, radiusValue, colorValue, controlMovePalette] = useStore(state => [state.addAtom, state.radiusValue, state.colorValue, state.controlMovePalette])

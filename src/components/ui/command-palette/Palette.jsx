@@ -1,10 +1,9 @@
 import { useState, useEffect, Fragment } from 'react'
 
 import { Dialog, Combobox, Transition } from '@headlessui/react'
-import SearchIcon from './SearchIcon.jsx'
-import { useStore } from '../hooks/useStore.js'
-import { isHexColor } from './utils/ColorChecker.js'
-import { isFloat } from './utils/FloatChecker.js'
+import { SearchIcon } from '@/components'
+import { useStore } from '@/store'
+import { isHexColor, isFloat } from '@/utils'
 
 export default function Palette ({ options }) {
   const [setControlMovePalette, controlMovePalette, setRadiusValue, setColorValue, changeSizeColorAtomByIDAtom, colorValue, radiusValue] = useStore(state => [state.setControlMovePalette, state.controlMovePalette, state.setRadiusValue, state.setColorValue, state.changeSizeColorAtomByIDAtom, state.colorValue, state.radiusValue])

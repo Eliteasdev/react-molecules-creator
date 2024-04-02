@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
-import * as icons from '../Icons/icons'
-import { useKeyboard } from '../hooks/useKeyboard'
-import { useStore } from '../hooks/useStore'
+import * as icons from '../../Icons/icons'
+import { useKeyboard } from '../../hooks/useKeyboard'
+import { useStore } from '../../hooks/useStore'
 
 export function Menu () {
   const [option, setOption] = useStore(state => [state.option, state.setOption])

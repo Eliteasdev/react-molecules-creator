@@ -1,4 +1,4 @@
-import { useStore } from '../hooks/useStore'
+import { useStore } from '../../store/useStore'
 
 import { useSphere } from '@react-three/cannon'
 import { useState } from 'react'

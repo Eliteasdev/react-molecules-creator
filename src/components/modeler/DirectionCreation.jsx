@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
-import { useKeyboard } from '../hooks/useKeyboard'
-import { useStore } from '../hooks/useStore'
+import { useKeyboard } from '../../hooks/useKeyboard'
+import { useStore } from '../../store/useStore'
 
 export function DirectionCreation () {
   const [directionCreation, setDirectionCreation] = useStore(state => [state.directionCreation, state.setDirectionCreation

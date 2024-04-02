@@ -1,5 +1,5 @@
 import * as THREE from 'three'
-import { useStore } from '../hooks/useStore'
+import { useStore } from '../../store/useStore'
 export function Connector ({ startPoint, endPoint, id }) {
   const [removeConnector] = useStore((state) => [state.removeConnector])
 
