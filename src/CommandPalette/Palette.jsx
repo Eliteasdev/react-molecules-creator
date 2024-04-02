@@ -14,7 +14,7 @@ export default function Palette ({ options }) {
 
   useEffect(() => {
     function onKeydown (event) {
-      if (event.key === 'k' && (event.metaKey || event.ctrlKey)) {
+      if ((event.key === 'k' || event.key === 'K') && (event.metaKey || event.ctrlKey)) {
         event.preventDefault()
         setControlMovePalette(!controlMovePalette)
         setIsOpen(!isOpen)
