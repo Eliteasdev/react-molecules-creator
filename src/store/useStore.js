@@ -1,4 +1,5 @@
 import { nanoid } from 'nanoid'
+import { string } from 'three/examples/jsm/nodes/shadernode/ShaderNode'
 import { create } from 'zustand'
 
 export const useStore = create((set, get) => ({
@@ -33,10 +34,12 @@ export const useStore = create((set, get) => ({
     const atomsJSON = JSON.stringify(useStore.getState().atoms)
     const connectorsJSON = JSON.stringify(useStore.getState().connectors)
     const structureToURL = { atoms: atomsJSON, connectors: connectorsJSON }
+    const pathURL = btoa(JSON.stringify(structureToURL))
+
     window.history.replaceState(
       null,
       null,
-      btoa(JSON.stringify(structureToURL))
+      pathURL
     )
   },
   connector: [],

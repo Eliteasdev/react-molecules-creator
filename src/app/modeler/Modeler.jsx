@@ -9,12 +9,13 @@ import { useStore } from '@/store'
 
 import { Molecule, FPV, Camera, DirectionCreation, Ground } from '@/components'
 
-function Builder () {
+export default function Modeler () {
   // ! Inicializar el estado
   const [setInitialState] = useStore((state) => [state.setInitialState])
-  const initialURL = window.location.pathname.slice(1)
+  const initialURL = window.location.pathname.slice(9)
+
   useEffect(() => {
-    if (initialURL.length === 0) {
+    if (initialURL.length <= 1) {
       setInitialState([
         { id: nanoid(), idAtom: 'sulfur', pos: [0, 0, 0], radius: 0.25, color: '#ff0' },
         { id: nanoid(), idAtom: 'oxygen', pos: [0.5, 0.5, 0], radius: 0.1, color: '#fff' },
@@ -72,5 +73,3 @@ function Builder () {
     </>
   )
 }
-
-export default Builder
