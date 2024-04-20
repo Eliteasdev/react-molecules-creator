@@ -14,8 +14,8 @@ export function Ground () {
   <mesh
     ref={ref}>
     <planeGeometry args={[100, 100]}/>
-    <meshStandardMaterial map={groundTexture} transparent={true} opacity={0.6}/>
-    {/* <meshStandardMaterial color="red"/> */}
+    {/* <meshStandardMaterial map={groundTexture} transparent={true} opacity={0.6}/> */}
+    <meshStandardMaterial color="red"/>
 
   </mesh>
   )
